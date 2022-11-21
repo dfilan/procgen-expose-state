@@ -149,9 +149,11 @@ void Game::step() {
     prev_level_seed = current_level_seed;
 
     if (step_data.done) {
-        // Before resetting the level save observation as last observation
+        // Before resetting the level save observation as last observation.
         observe();
         info_bufs[info_name_to_offset.at("last_obs")] = info_bufs[info_name_to_offset.at("rgb")]
+        // After we save the last obs we can safely reset the level, which will overwrite the previous obs (but not the one saved in
+        // the dict.
         reset();
     }
 
