@@ -157,7 +157,7 @@ void Game::step() {
         // the dict.
         reset();
         // Save the last_obs in info dict.
-        *(uint8_t *)(info_bufs[info_name_to_offset.at("last_obs")]) = last_obs;
+        *(uint8_t *)(info_bufs[info_name_to_offset.at("last_obs")]) = *last_obs;
     }
 
     if (options.use_sequential_levels && step_data.level_complete) {
