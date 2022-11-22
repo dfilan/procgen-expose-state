@@ -152,7 +152,7 @@ void Game::step() {
         // Before resetting the level save observation as last observation.
         observe();
         // Save previous last obs in buffer.
-        uint8_t *last_obs = (uint8_t *)info_bufs[info_name_to_offset.at("rgb")]);
+        uint8_t *last_obs = (uint8_t *)info_bufs[info_name_to_offset.at("rgb")];
         // After we save the last obs we can safely reset the level, which will overwrite the previous obs (but not the one saved in
         // the dict.
         reset();
