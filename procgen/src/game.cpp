@@ -149,15 +149,13 @@ void Game::step() {
     prev_level_seed = current_level_seed;
 
     if (step_data.done) {
-        // Before resetting the level save observation as last observation.
-        observe();
-        // Save previous last obs in buffer.
-        uint8_t *last_obs = (uint8_t *)info_bufs[info_name_to_offset.at("rgb")];
+        printf("1");
+        // Before resetting the level render the final obs and save in info dict.
+        render_to_buf(render_buf, RES_W, RES_H, false);
+        bgr32_to_rgb888(info_bufs[info_name_to_offset.at("final_obs")], render_buf, RES_W, RES_H);
         // After we save the last obs we can safely reset the level, which will overwrite the previous obs (but not the one saved in
         // the dict.
         reset();
-        // Save the last_obs in info dict.
-        *(uint8_t *)(info_bufs[info_name_to_offset.at("last_obs")]) = *last_obs;
     }
 
     if (options.use_sequential_levels && step_data.level_complete) {

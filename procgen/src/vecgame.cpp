@@ -358,7 +358,7 @@ VecGame::VecGame(int _nenvs, VecOptions opts) {
     // the next first observation being returned.
 	{
         struct libenv_tensortype s;
-        strcpy(s.name, "last_obs");
+        strcpy(s.name, "final_obs");
         s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
         s.dtype = LIBENV_DTYPE_UINT8;
         s.shape[0] = RES_W;
@@ -367,7 +367,7 @@ VecGame::VecGame(int _nenvs, VecOptions opts) {
         s.ndim = 3;
         s.low.uint8 = 0;
         s.high.uint8 = 255;
-        observation_types.push_back(s);
+        info_types.push_back(s);
     }
 
 
