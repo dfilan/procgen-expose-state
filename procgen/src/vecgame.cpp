@@ -357,18 +357,29 @@ VecGame::VecGame(int _nenvs, VecOptions opts) {
     // This is usually inaccessible because the last observation is not returned due to
     // the next first observation being returned.
 	{
-        struct libenv_tensortype s;
-        strcpy(s.name, "final_obs");
-        s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
-        s.dtype = LIBENV_DTYPE_UINT8;
-        s.shape[0] = RES_W;
-        s.shape[1] = RES_H;
-        s.shape[2] = 3;
-        s.ndim = 3;
-        s.low.uint8 = 0;
-        s.high.uint8 = 255;
-        info_types.push_back(s);
-    }
+            struct libenv_tensortype s;
+            strcpy(s.name, "final_obs");
+            s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
+            s.dtype = LIBENV_DTYPE_UINT8;
+            s.shape[0] = RES_W;
+            s.shape[1] = RES_H;
+            s.shape[2] = 3;
+            s.ndim = 3;
+            s.low.uint8 = 0;
+            s.high.uint8 = 255;
+            info_types.push_back(s);
+        }
+    // dummy to practice writing things to the info dict
+        {
+            struct libenv_tensortype s;
+            strcpy(s.name, "test_data");
+            s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
+            s.dtype = LIBENV_DTYPE_INT32;
+            s.ndim = 0;
+            s.low.int32 = 0;
+            s.high.int32 = INT32_MAX;
+            info_types.push_back(s);
+        }
 
 
     int level_seed_low = 0;

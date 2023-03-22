@@ -533,6 +533,8 @@ class CoinRun : public BasicAbstractGame {
         }
 
         last_agent_y = agent->y;
+
+        *(int32_t *)(info_bufs[info_name_to_offset.at("test_data")]) = 3;
     }
 
     void serialize(WriteBuffer *b) override {
