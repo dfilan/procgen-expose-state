@@ -1,6 +1,4 @@
-# Goal Misgeneralization in Procgen
-
-This is a fork of the [procgen benchmark](https://github.com/openai/procgen) that implements modifications for the paper Goal Misgeneralization in Deep Reinforcement Learning.
+This is a fork of the [procgen benchmark](https://github.com/openai/procgen) that implements modifications for the paper Goal Misgeneralization in Deep Reinforcement Learning, as well as adding state variables and the final observation of an episode to the info dict.
 
 ## Descriptions of the modified environments
 
