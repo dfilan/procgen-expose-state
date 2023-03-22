@@ -353,6 +353,22 @@ VecGame::VecGame(int _nenvs, VecOptions opts) {
 	    s.high.int32 = INT32_MAX;
 	    info_types.push_back(s);
 	}
+    // Add last_obs to track the last observation in the info dict when an episode ends.
+    // This is usually inaccessible because the last observation is not returned due to
+    // the next first observation being returned.
+	{
+        struct libenv_tensortype s;
+        strcpy(s.name, "final_obs");
+        s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
+        s.dtype = LIBENV_DTYPE_UINT8;
+        s.shape[0] = RES_W;
+        s.shape[1] = RES_H;
+        s.shape[2] = 3;
+        s.ndim = 3;
+        s.low.uint8 = 0;
+        s.high.uint8 = 255;
+        info_types.push_back(s);
+    }
 
 
     int level_seed_low = 0;
