@@ -533,8 +533,6 @@ class CoinRun : public BasicAbstractGame {
         }
 
         last_agent_y = agent->y;
-
-        *(int32_t *)(info_bufs[info_name_to_offset.at("test_data")]) = 3;
     }
 
     void serialize(WriteBuffer *b) override {
@@ -568,6 +566,7 @@ class CoinRun : public BasicAbstractGame {
         *(int32_t *)(info_bufs[info_name_to_offset.at("prev_level/randomize_goal")]) = prev_level_randomize_goal;
         *(int32_t *)(info_bufs[info_name_to_offset.at("prev_level/total_steps")]) = prev_level_total_steps;
         *(int32_t *)(info_bufs[info_name_to_offset.at("total_steps")]) = cur_time;
+        *(int32_t *)(info_bufs[info_name_to_offset.at("test_data")]) = 3;
     }
 
 };
