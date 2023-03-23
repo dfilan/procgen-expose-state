@@ -241,8 +241,8 @@ VecGame::VecGame(int _nenvs, VecOptions opts) {
         strcpy(s.name, "prev_level_seed");
         s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
         s.dtype = LIBENV_DTYPE_INT32;
-        s.ndim = 0,
-            s.low.int32 = 0;
+        s.ndim = 0;
+        s.low.int32 = 0;
         s.high.int32 = INT32_MAX;
         info_types.push_back(s);
     }
@@ -252,8 +252,8 @@ VecGame::VecGame(int _nenvs, VecOptions opts) {
         strcpy(s.name, "prev_level_complete");
         s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
         s.dtype = LIBENV_DTYPE_UINT8;
-        s.ndim = 0,
-            s.low.uint8 = 0;
+        s.ndim = 0;
+        s.low.uint8 = 0;
         s.high.uint8 = 1;
         info_types.push_back(s);
     }
@@ -263,8 +263,8 @@ VecGame::VecGame(int _nenvs, VecOptions opts) {
         strcpy(s.name, "level_seed");
         s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
         s.dtype = LIBENV_DTYPE_INT32;
-        s.ndim = 0,
-            s.low.int32 = 0;
+        s.ndim = 0;
+        s.low.int32 = 0;
         s.high.int32 = INT32_MAX;
         info_types.push_back(s);
     }
@@ -277,8 +277,8 @@ VecGame::VecGame(int _nenvs, VecOptions opts) {
         s.shape[0] = RENDER_RES;
         s.shape[1] = RENDER_RES;
         s.shape[2] = 3;
-        s.ndim = 3,
-            s.low.uint8 = 0;
+        s.ndim = 3;
+        s.low.uint8 = 0;
         s.high.uint8 = 255;
         info_types.push_back(s);
     }
