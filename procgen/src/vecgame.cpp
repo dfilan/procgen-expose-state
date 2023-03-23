@@ -242,7 +242,7 @@ VecGame::VecGame(int _nenvs, VecOptions opts) {
         s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
         s.dtype = LIBENV_DTYPE_INT32;
         s.ndim = 0,
-        s.low.int32 = 0;
+            s.low.int32 = 0;
         s.high.int32 = INT32_MAX;
         info_types.push_back(s);
     }
@@ -253,7 +253,7 @@ VecGame::VecGame(int _nenvs, VecOptions opts) {
         s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
         s.dtype = LIBENV_DTYPE_UINT8;
         s.ndim = 0,
-        s.low.uint8 = 0;
+            s.low.uint8 = 0;
         s.high.uint8 = 1;
         info_types.push_back(s);
     }
@@ -264,7 +264,7 @@ VecGame::VecGame(int _nenvs, VecOptions opts) {
         s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
         s.dtype = LIBENV_DTYPE_INT32;
         s.ndim = 0,
-        s.low.int32 = 0;
+            s.low.int32 = 0;
         s.high.int32 = INT32_MAX;
         info_types.push_back(s);
     }
@@ -278,7 +278,7 @@ VecGame::VecGame(int _nenvs, VecOptions opts) {
         s.shape[1] = RENDER_RES;
         s.shape[2] = 3;
         s.ndim = 3,
-        s.low.uint8 = 0;
+            s.low.uint8 = 0;
         s.high.uint8 = 255;
         info_types.push_back(s);
     }
@@ -288,98 +288,98 @@ VecGame::VecGame(int _nenvs, VecOptions opts) {
 // Using libenv discrete scalar (!?) bc that was
 // what the readme example used, even tho
 // bool would be more appropriate
-	{
-	    struct libenv_tensortype s;
-	    strcpy(s.name, "invisible_coin_collected");
-	    s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
-	    s.dtype = LIBENV_DTYPE_INT32;
-	    s.ndim = 0,
-	    s.low.int32 = 0;
-	    s.high.int32 = INT32_MAX;
-	    info_types.push_back(s);
-	}
+    {
+        struct libenv_tensortype s;
+        strcpy(s.name, "invisible_coin_collected");
+        s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
+        s.dtype = LIBENV_DTYPE_INT32;
+        s.ndim = 0;
+        s.low.int32 = 0;
+        s.high.int32 = INT32_MAX;
+        info_types.push_back(s);
+    }
 
-	{
-	    struct libenv_tensortype s;
-	    strcpy(s.name, "prev_level/invisible_coin_collected");
-	    s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
-	    s.dtype = LIBENV_DTYPE_INT32;
-	    s.ndim = 0,
-	    s.low.int32 = 0;
-	    s.high.int32 = INT32_MAX;
-	    info_types.push_back(s);
-	}
+    {
+        struct libenv_tensortype s;
+        strcpy(s.name, "prev_level/invisible_coin_collected");
+        s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
+        s.dtype = LIBENV_DTYPE_INT32;
+        s.ndim = 0;
+        s.low.int32 = 0;
+        s.high.int32 = INT32_MAX;
+        info_types.push_back(s);
+    }
 
-	{
-	    struct libenv_tensortype s;
-	    strcpy(s.name, "randomize_goal");
-	    s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
-	    s.dtype = LIBENV_DTYPE_INT32;
-	    s.ndim = 0,
-	    s.low.int32 = 0;
-	    s.high.int32 = INT32_MAX;
-	    info_types.push_back(s);
-	}
+    {
+        struct libenv_tensortype s;
+        strcpy(s.name, "randomize_goal");
+        s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
+        s.dtype = LIBENV_DTYPE_INT32;
+        s.ndim = 0;
+        s.low.int32 = 0;
+        s.high.int32 = INT32_MAX;
+        info_types.push_back(s);
+    }
 
-	{
-	    struct libenv_tensortype s;
-	    strcpy(s.name, "prev_level/randomize_goal");
-	    s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
-	    s.dtype = LIBENV_DTYPE_INT32;
-	    s.ndim = 0,
-	    s.low.int32 = 0;
-	    s.high.int32 = INT32_MAX;
-	    info_types.push_back(s);
-	}
+    {
+        struct libenv_tensortype s;
+        strcpy(s.name, "prev_level/randomize_goal");
+        s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
+        s.dtype = LIBENV_DTYPE_INT32;
+        s.ndim = 0;
+        s.low.int32 = 0;
+        s.high.int32 = INT32_MAX;
+        info_types.push_back(s);
+    }
 
-	{
-	    struct libenv_tensortype s;
-	    strcpy(s.name, "prev_level/total_steps");
-	    s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
-	    s.dtype = LIBENV_DTYPE_INT32;
-	    s.ndim = 0,
-	    s.low.int32 = 0;
-	    s.high.int32 = INT32_MAX;
-	    info_types.push_back(s);
-	}
+    {
+        struct libenv_tensortype s;
+        strcpy(s.name, "prev_level/total_steps");
+        s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
+        s.dtype = LIBENV_DTYPE_INT32;
+        s.ndim = 0;
+        s.low.int32 = 0;
+        s.high.int32 = INT32_MAX;
+        info_types.push_back(s);
+    }
 
-	{
-	    struct libenv_tensortype s;
-	    strcpy(s.name, "total_steps");
-	    s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
-	    s.dtype = LIBENV_DTYPE_INT32;
-	    s.ndim = 0,
-	    s.low.int32 = 0;
-	    s.high.int32 = INT32_MAX;
-	    info_types.push_back(s);
-	}
+    {
+        struct libenv_tensortype s;
+        strcpy(s.name, "total_steps");
+        s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
+        s.dtype = LIBENV_DTYPE_INT32;
+        s.ndim = 0;
+        s.low.int32 = 0;
+        s.high.int32 = INT32_MAX;
+        info_types.push_back(s);
+    }
     // Add last_obs to track the last observation in the info dict when an episode ends.
     // This is usually inaccessible because the last observation is not returned due to
     // the next first observation being returned.
-	{
-            struct libenv_tensortype s;
-            strcpy(s.name, "final_obs");
-            s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
-            s.dtype = LIBENV_DTYPE_UINT8;
-            s.shape[0] = RES_W;
-            s.shape[1] = RES_H;
-            s.shape[2] = 3;
-            s.ndim = 3;
-            s.low.uint8 = 0;
-            s.high.uint8 = 255;
-            info_types.push_back(s);
-        }
+    {
+        struct libenv_tensortype s;
+        strcpy(s.name, "final_obs");
+        s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
+        s.dtype = LIBENV_DTYPE_UINT8;
+        s.shape[0] = RES_W;
+        s.shape[1] = RES_H;
+        s.shape[2] = 3;
+        s.ndim = 3;
+        s.low.uint8 = 0;
+        s.high.uint8 = 255;
+        info_types.push_back(s);
+    }
     // dummy to practice writing things to the info dict
-        {
-            struct libenv_tensortype s;
-            strcpy(s.name, "test_data");
-            s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
-            s.dtype = LIBENV_DTYPE_INT32;
-            s.ndim = 0;
-            s.low.int32 = 0;
-            s.high.int32 = INT32_MAX;
-            info_types.push_back(s);
-        }
+    {
+        struct libenv_tensortype s;
+        strcpy(s.name, "test_data");
+        s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
+        s.dtype = LIBENV_DTYPE_INT32;
+        s.ndim = 0;
+        s.low.int32 = 0;
+        s.high.int32 = INT32_MAX;
+        info_types.push_back(s);
+    }
 
 
     int level_seed_low = 0;
