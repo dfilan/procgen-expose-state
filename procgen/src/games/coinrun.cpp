@@ -566,7 +566,12 @@ class CoinRun : public BasicAbstractGame {
         *(int32_t *)(info_bufs[info_name_to_offset.at("prev_level/randomize_goal")]) = prev_level_randomize_goal;
         *(int32_t *)(info_bufs[info_name_to_offset.at("prev_level/total_steps")]) = prev_level_total_steps;
         *(int32_t *)(info_bufs[info_name_to_offset.at("total_steps")]) = cur_time;
-        *(int32_t *)(info_bufs[info_name_to_offset.at("test_data")]) = 3;
+        float diff_x = coin->x - agent->x;
+        float diff_y = coin->y - agent->y;
+        float vec_x = diff_x / (diff_x * diff_x + diff_y * diff_y);
+        float vec_y = diff_y / (diff_x * diff_x + diff_y * diff_y);
+        *(float32_t *)(info_bufs[info_name_to_offset.at("agent_coin_vec_x")]) = vec_x;
+        *(float32_t *)(info_bufs[info_name_to_offset.at("agent_coin_vec_y")]) = vec_y;
     }
 
 };

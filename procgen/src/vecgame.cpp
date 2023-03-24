@@ -2,6 +2,7 @@
 #include "cpp-utils.h"
 #include "vecoptions.h"
 #include "game.h"
+#include "float.h"
 
 const int32_t END_OF_BUFFER = 0xCAFECAFE;
 
@@ -378,6 +379,27 @@ VecGame::VecGame(int _nenvs, VecOptions opts) {
         s.ndim = 0;
         s.low.int32 = 0;
         s.high.int32 = INT32_MAX;
+        info_types.push_back(s);
+    }
+    // vector from agent to coin with inverted magnitude (only relevant for coinrun)
+    {
+        struct libenv_tensortype s;
+        strcpy(s.name, "agent_coin_vec_x");
+        s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
+        s.dtype = LIBENV_DTYPE_FLOAT32;
+        s.ndim = 0;
+        s.low.float32 = (-1) * FLT_MAX;
+        s.high.float32 = FLT_MAX;
+        info_types.push_back(s);
+    }
+    {
+        struct libenv_tensortype s;
+        strcpy(s.name, "agent_coin_vec_y");
+        s.scalar_type = LIBENV_SCALAR_TYPE_DISCRETE;
+        s.dtype = LIBENV_DTYPE_FLOAT32;
+        s.ndim = 0;
+        s.low.float32 = (-1) * FLT_MAX;
+        s.high.float32 = FLT_MAX;
         info_types.push_back(s);
     }
 
