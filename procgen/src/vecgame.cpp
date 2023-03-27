@@ -386,20 +386,26 @@ VecGame::VecGame(int _nenvs, VecOptions opts) {
         struct libenv_tensortype s;
         strcpy(s.name, "agent_coin_vec_x");
         s.scalar_type = LIBENV_SCALAR_TYPE_REAL;
-        s.dtype = LIBENV_DTYPE_FLOAT32;
+        // s.dtype = LIBENV_DTYPE_FLOAT32; // is this a real type??????
+        s.dtype = LIBENV_DTYPE_INT32;
         s.ndim = 0;
-        s.low.float32 = (-1) * FLT_MAX;
-        s.high.float32 = FLT_MAX;
+        // s.low.float32 = (-1) * FLT_MAX;
+        // s.high.float32 = FLT_MAX;
+        s.low.int32 = (-1) * FLT_MAX;
+        s.high.int32 = INT32_MAX;
         info_types.push_back(s);
     }
     {
         struct libenv_tensortype s;
         strcpy(s.name, "agent_coin_vec_y");
         s.scalar_type = LIBENV_SCALAR_TYPE_REAL;
-        s.dtype = LIBENV_DTYPE_FLOAT32;
+        // s.dtype = LIBENV_DTYPE_FLOAT32; // is this a real type??????
+        s.dtype = LIBENV_DTYPE_INT32;
         s.ndim = 0;
-        s.low.float32 = (-1) * FLT_MAX;
-        s.high.float32 = FLT_MAX;
+        // s.low.float32 = (-1) * FLT_MAX;
+        // s.high.float32 = FLT_MAX;
+        s.low.int32 = (-1) * INT32_MAX;
+        s.high.int32 = INT32_MAX;
         info_types.push_back(s);
     }
 

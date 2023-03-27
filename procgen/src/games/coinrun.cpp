@@ -570,8 +570,10 @@ class CoinRun : public BasicAbstractGame {
         float diff_y = goal->y - agent->y;
         float vec_x = diff_x / (diff_x * diff_x + diff_y * diff_y);
         float vec_y = diff_y / (diff_x * diff_x + diff_y * diff_y);
-        *(float_t *)(info_bufs[info_name_to_offset.at("agent_coin_vec_x")]) = vec_x;
-        *(float_t *)(info_bufs[info_name_to_offset.at("agent_coin_vec_y")]) = vec_y;
+        int v_x_floor = (int) floor(vec_x);
+        int v_y_floor = (int) floor(vec_y);
+        *(int32_t *)(info_bufs[info_name_to_offset.at("agent_coin_vec_x")]) = v_x_floor;
+        *(int32_t *)(info_bufs[info_name_to_offset.at("agent_coin_vec_y")]) = v_y_floor;
     }
 
 };
