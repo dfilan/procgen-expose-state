@@ -40,6 +40,8 @@ const int NUM_GROUND_THEMES = (int)(GROUND_THEMES.size());
 class CoinRun : public BasicAbstractGame {
   public:
     std::shared_ptr<Entity> goal;
+    float goal_x;
+    float goal_y;
     float last_agent_y = 0.0f;
     int wall_theme = 0;
     bool has_support = false;
@@ -439,6 +441,8 @@ class CoinRun : public BasicAbstractGame {
         }
 
         set_obj(curr_x, curr_y, FIXED_COIN);
+        goal_x = curr_x;
+        goal_y = curr_y;
 
         fill_ground_block(curr_x, 0, 1, curr_y);
         fill_elem(curr_x + 1, 0, main_width - curr_x - 1, main_height, WALL_MID);
@@ -566,14 +570,12 @@ class CoinRun : public BasicAbstractGame {
         *(int32_t *)(info_bufs[info_name_to_offset.at("prev_level/randomize_goal")]) = prev_level_randomize_goal;
         *(int32_t *)(info_bufs[info_name_to_offset.at("prev_level/total_steps")]) = prev_level_total_steps;
         *(int32_t *)(info_bufs[info_name_to_offset.at("total_steps")]) = cur_time;
-        float diff_x = goal->x - agent->x;
-        float diff_y = goal->y - agent->y;
+        float diff_x = goal_x - agent->x;
+        float diff_y = goal_y - agent->y;
         float vec_x = diff_x / (diff_x * diff_x + diff_y * diff_y);
         float vec_y = diff_y / (diff_x * diff_x + diff_y * diff_y);
-        int v_x_floor = (int) floor(vec_x);
-        int v_y_floor = (int) floor(vec_y);
-        *(int32_t *)(info_bufs[info_name_to_offset.at("agent_coin_vec_x")]) = v_x_floor;
-        *(int32_t *)(info_bufs[info_name_to_offset.at("agent_coin_vec_y")]) = v_y_floor;
+        *(float_t *)(info_bufs[info_name_to_offset.at("agent_coin_vec_x")]) = vec_x;
+        *(float_t *)(info_bufs[info_name_to_offset.at("agent_coin_vec_y")]) = vec_y;
     }
 
 };
