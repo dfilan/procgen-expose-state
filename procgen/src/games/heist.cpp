@@ -19,6 +19,8 @@ class HeistGame : public BasicAbstractGame {
     std::shared_ptr<MazeGen> maze_gen;
     int world_dim = 0;
     int num_keys = 0;
+    float goal_x;
+    float goal_y;
     std::vector<bool> has_keys;
 
     HeistGame()
@@ -182,6 +184,8 @@ class HeistGame : public BasicAbstractGame {
                 } else if (obj == EXIT_OBJ) {
                     auto ent = spawn_entity(.375 * maze_scale, EXIT, maze_scale * x, maze_scale * y, maze_scale, maze_scale);
                     match_aspect_ratio(ent);
+                    goal_x = obj_x;
+                    goal_y = obj_y;
                 } else if (obj == AGENT_OBJ) {
                     agent->x = obj_x;
                     agent->y = obj_y;
@@ -220,6 +224,16 @@ class HeistGame : public BasicAbstractGame {
         num_keys = b->read_int();
         world_dim = b->read_int();
         has_keys = b->read_vector_bool();
+    }
+
+    // info dict
+    void observe() override {
+        Game::observe();
+        float diff_x = goal_x - agent->x;
+        float diff_y = goal_y - agent->y;
+        float thirteen = 13.0;
+        *(float_t *)(info_bufs[info_name_to_offset.at("agent_goal_x_max_13")]) = std::min(thirteen, diff_x);
+        *(float_t *)(info_bufs[info_name_to_offset.at("agent_goal_y_max_13")]) = std::min(thirteen, diff_y);
     }
 };
 

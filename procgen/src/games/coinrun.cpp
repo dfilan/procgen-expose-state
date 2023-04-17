@@ -578,7 +578,7 @@ class CoinRun : public BasicAbstractGame {
         float thirteen = 13.0;
         *(float_t *)(info_bufs[info_name_to_offset.at("agent_coin_vec_x")]) = vec_x;
         *(float_t *)(info_bufs[info_name_to_offset.at("agent_coin_vec_y")]) = vec_y;
-        *(float_t *)(info_bufs[info_name_to_offset.at("agent_coin_x_max_13")]) = std::min(thirteen, diff_x);
+        *(float_t *)(info_bufs[info_name_to_offset.at("agent_goal_x_max_13")]) = std::min(thirteen, diff_x);
     }
 
 };

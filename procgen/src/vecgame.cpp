@@ -395,7 +395,18 @@ VecGame::VecGame(int _nenvs, VecOptions opts) {
 
     {
         struct libenv_tensortype s;
-        strcpy(s.name, "agent_coin_x_max_13");
+        strcpy(s.name, "agent_goal_x_max_13");
+        s.scalar_type = LIBENV_SCALAR_TYPE_REAL;
+        s.dtype = LIBENV_DTYPE_FLOAT32;
+        s.ndim = 0;
+        s.low.float32 = (-1) * FLT_MAX;
+        s.high.float32 = FLT_MAX;
+        info_types.push_back(s);
+    }
+
+    {
+        struct libenv_tensortype s;
+        strcpy(s.name, "agent_goal_y_max_13");
         s.scalar_type = LIBENV_SCALAR_TYPE_REAL;
         s.dtype = LIBENV_DTYPE_FLOAT32;
         s.ndim = 0;
