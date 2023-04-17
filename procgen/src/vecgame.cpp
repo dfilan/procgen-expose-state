@@ -373,7 +373,7 @@ VecGame::VecGame(int _nenvs, VecOptions opts) {
 
     {
         struct libenv_tensortype s;
-        strcpy(s.name, "agent_coin_vec_x");
+        strcpy(s.name, "agent_goal_vec_x");
         s.scalar_type = LIBENV_SCALAR_TYPE_REAL;
         s.dtype = LIBENV_DTYPE_FLOAT32;
         s.ndim = 0;
@@ -384,7 +384,7 @@ VecGame::VecGame(int _nenvs, VecOptions opts) {
 
     {
         struct libenv_tensortype s;
-        strcpy(s.name, "agent_coin_vec_y");
+        strcpy(s.name, "agent_goal_vec_y");
         s.scalar_type = LIBENV_SCALAR_TYPE_REAL;
         s.dtype = LIBENV_DTYPE_FLOAT32;
         s.ndim = 0;

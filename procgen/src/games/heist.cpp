@@ -231,7 +231,11 @@ class HeistGame : public BasicAbstractGame {
         Game::observe();
         float diff_x = goal_x - agent->x;
         float diff_y = goal_y - agent->y;
+        float vec_x = diff_x / (diff_x * diff_x + diff_y * diff_y);
+        float vec_y = diff_y / (diff_x * diff_x + diff_y * diff_y);
         float thirteen = 13.0;
+        *(float_t *)(info_bufs[info_name_to_offset.at("agent_goal_vec_x")]) = vec_x;
+        *(float_t *)(info_bufs[info_name_to_offset.at("agent_goal_vec_y")]) = vec_y;
         *(float_t *)(info_bufs[info_name_to_offset.at("agent_goal_x_max_13")]) = std::min(thirteen, diff_x);
         *(float_t *)(info_bufs[info_name_to_offset.at("agent_goal_y_max_13")]) = std::min(thirteen, diff_y);
     }
