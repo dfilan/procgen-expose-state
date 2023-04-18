@@ -395,7 +395,7 @@ VecGame::VecGame(int _nenvs, VecOptions opts) {
 
     {
         struct libenv_tensortype s;
-        strcpy(s.name, "agent_goal_x_max_13");
+        strcpy(s.name, "agent_goal_x");
         s.scalar_type = LIBENV_SCALAR_TYPE_REAL;
         s.dtype = LIBENV_DTYPE_FLOAT32;
         s.ndim = 0;
@@ -406,7 +406,7 @@ VecGame::VecGame(int _nenvs, VecOptions opts) {
 
     {
         struct libenv_tensortype s;
-        strcpy(s.name, "agent_goal_y_max_13");
+        strcpy(s.name, "agent_goal_y");
         s.scalar_type = LIBENV_SCALAR_TYPE_REAL;
         s.dtype = LIBENV_DTYPE_FLOAT32;
         s.ndim = 0;

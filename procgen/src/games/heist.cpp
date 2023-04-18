@@ -238,11 +238,10 @@ class HeistGame : public BasicAbstractGame {
         float inv_sq_norm = 1.0 / sq_norm;
         float vec_x = diff_x / sq_norm;
         float vec_y = diff_y / sq_norm;
-        float thirteen = 13.0;
         *(float_t *)(info_bufs[info_name_to_offset.at("agent_goal_vec_x")]) = vec_x;
         *(float_t *)(info_bufs[info_name_to_offset.at("agent_goal_vec_y")]) = vec_y;
-        *(float_t *)(info_bufs[info_name_to_offset.at("agent_goal_x_max_13")]) = std::min(thirteen, diff_x);
-        *(float_t *)(info_bufs[info_name_to_offset.at("agent_goal_y_max_13")]) = std::min(thirteen, diff_y);
+        *(float_t *)(info_bufs[info_name_to_offset.at("agent_goal_x")]) = diff_x;
+        *(float_t *)(info_bufs[info_name_to_offset.at("agent_goal_y")]) = diff_y;
         *(float_t *)(info_bufs[info_name_to_offset.at("agent_goal_norm")]) = norm;
         *(float_t *)(info_bufs[info_name_to_offset.at("agent_goal_squared_norm")]) = sq_norm;
         *(float_t *)(info_bufs[info_name_to_offset.at("agent_goal_inv_norm")]) = inv_norm;
