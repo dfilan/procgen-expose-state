@@ -415,6 +415,50 @@ VecGame::VecGame(int _nenvs, VecOptions opts) {
         info_types.push_back(s);
     }
 
+    {
+        struct libenv_tensortype s;
+        strcpy(s.name, "agent_goal_norm");
+        s.scalar_type = LIBENV_SCALAR_TYPE_REAL;
+        s.dtype = LIBENV_DTYPE_FLOAT32;
+        s.ndim = 0;
+        s.low.float32 = (-1) * FLT_MAX;
+        s.high.float32 = FLT_MAX;
+        info_types.push_back(s);
+    }
+
+    {
+        struct libenv_tensortype s;
+        strcpy(s.name, "agent_goal_squared_norm");
+        s.scalar_type = LIBENV_SCALAR_TYPE_REAL;
+        s.dtype = LIBENV_DTYPE_FLOAT32;
+        s.ndim = 0;
+        s.low.float32 = (-1) * FLT_MAX;
+        s.high.float32 = FLT_MAX;
+        info_types.push_back(s);
+    }
+
+    {
+        struct libenv_tensortype s;
+        strcpy(s.name, "agent_goal_inv_norm");
+        s.scalar_type = LIBENV_SCALAR_TYPE_REAL;
+        s.dtype = LIBENV_DTYPE_FLOAT32;
+        s.ndim = 0;
+        s.low.float32 = (-1) * FLT_MAX;
+        s.high.float32 = FLT_MAX;
+        info_types.push_back(s);
+    }
+
+    {
+        struct libenv_tensortype s;
+        strcpy(s.name, "agent_goal_inv_squared_norm");
+        s.scalar_type = LIBENV_SCALAR_TYPE_REAL;
+        s.dtype = LIBENV_DTYPE_FLOAT32;
+        s.ndim = 0;
+        s.low.float32 = (-1) * FLT_MAX;
+        s.high.float32 = FLT_MAX;
+        info_types.push_back(s);
+    }
+
     int level_seed_low = 0;
     int level_seed_high = 0;
 
